@@ -1,17 +1,19 @@
 import { Command } from "commander";
-import { CLI_DESCRIPTION, VERSION, cliOptions } from "../config/Config";
+import { CLI_DESCRIPTION, VERSION } from "../config/Config";
 import { CliOption } from "../type/CliOption";
 
 export default class Cli {
     private command: Command;
+    private cliOptions: CliOption[];
 
-    constructor(cli: Command) {
+    constructor(cli: Command, cliOptions: CliOption[]) {
         this.command = cli;
+        this.cliOptions = cliOptions;
     }
 
     public execute(): Command {
         this.command.version(VERSION).description(CLI_DESCRIPTION);
-        this.createOptions(cliOptions);
+        this.createOptions(this.cliOptions);
         return this.command.parse(process.argv);
     }
 
