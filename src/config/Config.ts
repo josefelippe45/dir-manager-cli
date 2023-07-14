@@ -7,3 +7,6 @@ export const cliOptions: CliOption[] = [
     { flags: "-m, --mkdir <value>", description: "Create a directory" },
     { flags: "-t, --touch <value>", description: "Create a file" },
 ]
+export const KILOBYTE_VALUE = 1024;
+export const KILOBYTE_SUFIX = 'KB';
+export const GENERIC_ERROR = 'Something went wrong!';
